@@ -159,3 +159,20 @@ plt.legend()
 # Display the plot
 #plt.grid(True)
 plt.show()
+
+# LIFT / DRAG VS DEGREES
+liftDragDF = pd.read_csv('forces.csv')
+anglesOfAttack = liftDragDF['P16 - Angle of Attack [degree]']
+liftCoeff = liftDragDF['P13 - lift-coefficient-op']
+dragCoeff = liftDragDF['P14 - drag-coefficient-op']
+liftDrag = liftDragDF['lift/drag']
+
+plt.plot(anglesOfAttack, liftCoeff, label='liftCoeff', color='#456990')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('Lift Coefficient')
+plt.title('Lift Coefficient at Different Angles of Attack')
+plt.legend()
+
+# Display the plot
+plt.show()
