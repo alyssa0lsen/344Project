@@ -6,6 +6,8 @@ inletVelocityDF = pd.read_csv('InletVelocityVerification.csv')
 pressureDF = pd.read_csv('PressureVerification.csv')
 wallsPressureDF = pd.read_csv('WallsPressureVerification.csv')
 wallsVelocityDF = pd.read_csv('WallsVelocityVerification.csv')
+domainRightDF = pd.read_csv('DomainRight.csv')
+domainLeftDF = pd.read_csv('DomainLeft.csv')
 
 # INLET VELOCITY VERIFICATION PLOT
 yVelocity = inletVelocityDF['Y']
@@ -63,3 +65,30 @@ plt.ylabel('Velocity (m/s)')
 plt.title('Verification of Velocity at Walls')
 
 plt.show()
+
+
+# DOMAIN SIZE PLOTS
+# INLET TO AIRFOIL
+inletToAirfoil = domainLeftDF['inletToAirfoil']
+dragCoefficient = domainLeftDF['dragCoefficient']
+
+plt.plot(inletToAirfoil, dragCoefficient, label='Cd', color='#1b96c6')
+
+plt.xlabel('Distance from inlet to airfoil tip (m)')
+plt.ylabel('Cd')
+plt.title('Domain convergence - inlet to airfoil')
+
+plt.show()  # Display the graph
+
+# OUTLET TO AIRFOIL
+outletToAirfoil = domainRightDF['outletToAirfoil']
+dragCoefficient = domainRightDF['dragCoeff']
+
+plt.plot(outletToAirfoil, dragCoefficient, label='Cd', color='#1b96c6')
+
+plt.xlabel('Distance from outlet to airfoil tip (m)')
+plt.ylabel('Cd')
+plt.title('Domain convergence - outlet to airfoil')
+plt.show()  # Display the graph
+
+# VERTICAL
