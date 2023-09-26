@@ -167,7 +167,7 @@ liftCoeff = liftDragDF['P13 - lift-coefficient-op']
 dragCoeff = liftDragDF['P14 - drag-coefficient-op']
 liftDrag = liftDragDF['lift/drag']
 
-plt.plot(anglesOfAttack, liftCoeff, label='liftCoeff', color='#456990')
+plt.plot(anglesOfAttack, liftCoeff, marker='.', label='liftCoeff', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Lift Coefficient')
@@ -176,7 +176,7 @@ plt.title('Lift Coefficient at Different Angles of Attack')
 # Display the plot
 plt.show()
 
-plt.plot(anglesOfAttack, dragCoeff, label='dragCoeff', color='#456990')
+plt.plot(anglesOfAttack, dragCoeff, marker='.', label='dragCoeff', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Drag Coefficient')
@@ -185,7 +185,7 @@ plt.title('Drag Coefficient at Different Angles of Attack')
 # Display the plot
 plt.show()
 
-plt.plot(anglesOfAttack, liftDrag, label='lift/drag', color='#456990')
+plt.plot(anglesOfAttack, liftDrag, marker='.', label='lift/drag', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('lift/drag')
