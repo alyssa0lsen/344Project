@@ -96,7 +96,7 @@ plt.show()  # Display the graph
 outletToAirfoil = domainRightDF['outletToAirfoil']
 dragCoefficient = domainRightDF['dragCoeff']
 
-plt.plot(outletToAirfoil, dragCoefficient,marker='o', label='Cd', color='#1b96c6')
+plt.plot(outletToAirfoil, dragCoefficient, marker='o', label='Cd', color='#1b96c6')
 
 plt.xlabel('Distance from outlet to airfoil tip (m)')
 plt.ylabel('Cd')
@@ -106,6 +106,18 @@ plt.show()  # Display the graph
 # VERTICAL
 
 # STRUCTURAL GEOMETRY MESH CONVERGENCE
+structuralGeomDF = pd.read_csv('strucural geometry mesh 3.csv')
+structuralDeformation = structuralGeomDF['P2 - Total Deformation Maximum [mm]']
+structuralStress = structuralGeomDF['P4 - Equivalent Stress Maximum [MPa]']
+structuralSF = structuralGeomDF['P5 - Safety Factor Minimum']
+numberOfElements = structuralGeomDF['P8 - Mesh Elements']
+
+plt.plot(numberOfElements, structuralDeformation, marker='o', label='Cd', color='#1b96c6')
+
+plt.xlabel('Number of Elements')
+plt.ylabel('Total Deformation Maximum (mm)')
+plt.title('Mesh convergence - structural geometry')
+plt.show()  # Display the graph
 
 # PRESSURE COEFFICIENTS / ANGLES OF ATTACK
 negFiveDegDF = pd.read_csv('negfivedeg.csv')
