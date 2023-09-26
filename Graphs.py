@@ -72,7 +72,19 @@ plt.show()
 inletToAirfoil = domainLeftDF['inletToAirfoil']
 dragCoefficient = domainLeftDF['dragCoefficient']
 
-plt.plot(inletToAirfoil, dragCoefficient, label='Cd', color='#1b96c6')
+marker_styles = ['.'] * len(inletToAirfoil)
+
+# Set a specific marker style for a data point (e.g., 's' for a star) - for the 3rd point (index 2)
+highlight_index = 2
+marker_styles[highlight_index] = '*'
+
+plt.plot(inletToAirfoil, dragCoefficient, linestyle='-', color='#1b96c6', label='Data Line')
+
+# Plot the data with customized marker styles
+for x, y, marker in zip(inletToAirfoil, dragCoefficient, marker_styles):
+    plt.plot(x, y, marker=marker, linestyle='-', color='#1b96c6', label='Data Points')
+
+#plt.plot(inletToAirfoil, dragCoefficient,marker='o', label='Cd', color='#1b96c6')
 
 plt.xlabel('Distance from inlet to airfoil tip (m)')
 plt.ylabel('Cd')
@@ -84,7 +96,7 @@ plt.show()  # Display the graph
 outletToAirfoil = domainRightDF['outletToAirfoil']
 dragCoefficient = domainRightDF['dragCoeff']
 
-plt.plot(outletToAirfoil, dragCoefficient, label='Cd', color='#1b96c6')
+plt.plot(outletToAirfoil, dragCoefficient,marker='o', label='Cd', color='#1b96c6')
 
 plt.xlabel('Distance from outlet to airfoil tip (m)')
 plt.ylabel('Cd')
@@ -92,3 +104,46 @@ plt.title('Domain convergence - outlet to airfoil')
 plt.show()  # Display the graph
 
 # VERTICAL
+
+# STRUCTURAL GEOMETRY MESH CONVERGENCE
+
+# PRESSURE COEFFICIENTS / ANGLES OF ATTACK
+negFiveDegDF = pd.read_csv('negfivedeg.csv')
+negFiveDegPos = negFiveDegDF['Position']
+negFiveDegPressCoeff = negFiveDegDF['Pressure Coefficient']
+
+zeroDegDF = pd.read_csv('zerodeg.csv')
+zeroDegPos = zeroDegDF['Position']
+zeroDegPressCoeff = zeroDegDF['Pressure Coefficient']
+
+fiveDegDF = pd.read_csv('fivedeg - Copy.csv')
+fiveDegPos = fiveDegDF['Position']
+fiveDegPressCoeff = fiveDegDF['Pressure Coefficient']
+
+tenDegDF = pd.read_csv('tendeg.csv')
+tenDegPos = tenDegDF['Position']
+tenDegPressCoeff = tenDegDF['Pressure Coefficient']
+
+fifteenDegDF = pd.read_csv('fifteendeg.csv')
+fifteenDegPos = fifteenDegDF['Position']
+fifteenDegPressCoeff = fifteenDegDF['Pressure Coefficient']
+
+
+plt.plot(negFiveDegPos, negFiveDegPressCoeff, label='-5 degrees', color='#1b96c6')
+
+plt.plot(zeroDegPos, zeroDegPressCoeff, label='0 degrees', color='#ef767a')
+
+plt.plot(fiveDegPos, fiveDegPressCoeff, label='5 degrees', color='#49dcb1')
+
+plt.plot(tenDegPos, tenDegPressCoeff, label='10 degrees', color='#456990')
+
+plt.plot(fifteenDegPos, fifteenDegPressCoeff, label='15 degrees', color='#eeb868')
+
+plt.xlabel('Position (m)')
+plt.ylabel('Pressure Coefficient')
+plt.title('Pressure Coefficient at Different Angles of Attack')
+plt.legend()
+
+# Display the plot
+#plt.grid(True)
+plt.show()
