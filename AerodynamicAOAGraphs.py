@@ -39,7 +39,7 @@ plt.legend()
 
 plt.show()
 
-# LIFT / DRAG VS DEGREES
+# LIFT & DRAG VS DEGREES
 liftDragDF = pd.read_csv('forces.csv')
 anglesOfAttack = liftDragDF['P16 - Angle of Attack [degree]']
 liftCoeff = liftDragDF['P13 - lift-coefficient-op']
@@ -69,6 +69,46 @@ plt.plot(anglesOfAttack, liftDrag, marker='.', label='lift/drag', color='#1b96c6
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('lift/drag')
 plt.title('Lift/drag at Different Angles of Attack')
+
+# Display the plot
+plt.show()
+
+# LIFT & DRAG VS REFERENCE DATA
+referenceDF = pd.read_csv('airfoil_reference_data-1.csv')
+referenceAnglesOfAttack = referenceDF['# alpha']
+referenceLiftCoeff = referenceDF['Cl']
+referenceDragCoeff = referenceDF['Cd']
+referenceLiftDrag = referenceDF['Cl/Cd']
+
+plt.plot(anglesOfAttack, liftCoeff, label='Lift Coefficient', color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceLiftCoeff, label='Reference Lift Coefficient', color='#ef767a')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('Cl')
+plt.title('Lift Coefficient at Different Angles of Attack')
+plt.legend()
+
+# Display the plot
+plt.show()
+
+plt.plot(anglesOfAttack, dragCoeff, label='Drag Coefficient', color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceDragCoeff, label='Reference Drag Coefficient', color='#ef767a')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('Cd')
+plt.title('Drag Coefficient at Different Angles of Attack')
+plt.legend()
+
+# Display the plot
+plt.show()
+
+plt.plot(anglesOfAttack, liftDrag, label='Lift/drag', color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceLiftDrag, label='Reference Lift/drag', color='#ef767a')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('Cl/Cd')
+plt.title('Lift/drag at Different Angles of Attack')
+plt.legend()
 
 # Display the plot
 plt.show()
