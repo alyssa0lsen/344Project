@@ -10,7 +10,7 @@ zeroDegDF = pd.read_csv('zerodeg.csv')
 zeroDegPos = zeroDegDF['Position']
 zeroDegPressCoeff = zeroDegDF['Pressure Coefficient']
 
-fiveDegDF = pd.read_csv('fivedeg - Copy.csv')
+fiveDegDF = pd.read_csv('fivedeg.csv')
 fiveDegPos = fiveDegDF['Position']
 fiveDegPressCoeff = fiveDegDF['Pressure Coefficient']
 
