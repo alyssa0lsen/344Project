@@ -172,7 +172,24 @@ plt.plot(anglesOfAttack, liftCoeff, label='liftCoeff', color='#456990')
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Lift Coefficient')
 plt.title('Lift Coefficient at Different Angles of Attack')
-plt.legend()
+
+# Display the plot
+plt.show()
+
+plt.plot(anglesOfAttack, dragCoeff, label='dragCoeff', color='#456990')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('Drag Coefficient')
+plt.title('Drag Coefficient at Different Angles of Attack')
+
+# Display the plot
+plt.show()
+
+plt.plot(anglesOfAttack, liftDrag, label='lift/drag', color='#456990')
+
+plt.xlabel('Angle of Attack (degree)')
+plt.ylabel('lift/drag')
+plt.title('Lift/drag at Different Angles of Attack')
 
 # Display the plot
 plt.show()
