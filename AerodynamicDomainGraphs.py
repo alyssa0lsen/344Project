@@ -7,6 +7,7 @@ domainLeftDF = pd.read_csv('DomainLeft.csv')
 domainVerticalDF = pd.read_csv('vertical 3.csv')
 
 # DOMAIN SIZE PLOTS
+# 10 left to inlet, 14 right to inlet and 10 height
 # INLET TO AIRFOIL
 inletToAirfoil = domainLeftDF['inletToAirfoil']
 dragCoefficient = domainLeftDF['dragCoefficient']
@@ -47,16 +48,20 @@ vertical = domainVerticalDF['P15 - Vertical [m]']
 dragCoefficient = domainVerticalDF['P14 - drag-coefficient-op']
 
 marker_styles = ['.'] * len(vertical)
+marker_colours = ['#1b96c6'] * len(vertical)
+
 
 # Set a specific marker style for a data point (e.g., 's' for a star) - for the 3rd point (index 2)
 highlight_index = 2
 marker_styles[highlight_index] = '*'
+marker_colours[highlight_index] = 'red'
+
 
 plt.plot(vertical, dragCoefficient, linestyle='-', color='#1b96c6', label='Data Line')
 
 # Plot the data with customized marker styles
-for x, y, marker in zip(vertical, dragCoefficient, marker_styles):
-    plt.plot(x, y, marker=marker, linestyle='-', color='#1b96c6', label='Data Points')
+for x, y, marker, color in zip(vertical, dragCoefficient, marker_styles, marker_colours):
+    plt.plot(x, y, marker=marker, linestyle='-', color=color, label='Data Points')
 
 #plt.plot(inletToAirfoil, dragCoefficient,marker='o', label='Cd', color='#1b96c6')
 

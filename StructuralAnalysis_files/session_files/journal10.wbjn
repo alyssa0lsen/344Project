@@ -1,0 +1,139 @@
+# encoding: utf-8
+# 2022 R1
+SetScriptVersion(Version="22.1.217")
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+designPoint1 = Parameters.CreateDesignPoint()
+parameter1 = Parameters.GetParameter(Name="P1")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="40 [mm]")
+designPoint2 = Parameters.CreateDesignPoint()
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="30 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1])
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint2])
+designPoint3 = Parameters.CreateDesignPoint()
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="100 [mm]")
+designPoint4 = Parameters.CreateDesignPoint()
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="90 [mm]")
+designPoint5 = Parameters.CreateDesignPoint()
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="80 [mm]")
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint3])
+model1.Edit()
+chart1 = Parameters.CreateParameterVsParameterChart()
+chart1.XAxisBottom = parameter1
+parameter2 = Parameters.GetParameter(Name="P2")
+chart1.YAxisLeft = parameter2
+backgroundSession4 = UpdateAllDesignPoints(DesignPoints=[designPoint4])
+backgroundSession5 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+chart2 = Parameters.CreateParameterVsParameterChart()
+chart2.Delete()
+designPoint6 = Parameters.CreateDesignPoint()
+designPoint6.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="70 [mm]")
+designPoint7 = Parameters.CreateDesignPoint()
+designPoint7.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="60 [mm]")
+backgroundSession6 = UpdateAllDesignPoints(DesignPoints=[designPoint6])
+backgroundSession7 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+designPoint8 = Parameters.CreateDesignPoint()
+designPoint8.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="110 [mm]")
+axis1 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis")
+axis1.RangeMin = 28.4
+axis1.RangeMax = 111.6
+designPoint9 = Parameters.CreateDesignPoint()
+designPoint9.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="120 [mm]")
+axis1.RangeMin = 28.2
+axis1.RangeMax = 121.8
+designPoint10 = Parameters.CreateDesignPoint()
+designPoint10.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="130 [mm]")
+axis1.RangeMin = 28
+axis1.RangeMax = 132
+designPoint11 = Parameters.CreateDesignPoint()
+designPoint11.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="140 [mm]")
+axis1.RangeMin = 27.8
+axis1.RangeMax = 142.2
+designPoint12 = Parameters.CreateDesignPoint()
+designPoint12.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="150 [mm]")
+axis1.RangeMin = 27.6
+axis1.RangeMax = 152.4
+backgroundSession8 = UpdateAllDesignPoints(DesignPoints=[designPoint8, designPoint9, designPoint10, designPoint11, designPoint12])
+axis2 = Graphics.GetAxisContinuous(Name="Param Vs Param Y Axis")
+axis2.RangeMin = 0.401897
+axis2.RangeMax = 0.432076
+designPoint13 = Parameters.CreateDesignPoint()
+designPoint13.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="200 [mm]")
+axis1.RangeMin = 26.6
+axis1.RangeMax = 203.4
+designPoint14 = Parameters.CreateDesignPoint()
+designPoint14.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="300 [mm]")
+axis1.RangeMin = 24.6
+axis1.RangeMax = 305.4
+designPoint15 = Parameters.CreateDesignPoint()
+designPoint15.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="400 [mm]")
+axis1.RangeMin = 22.6
+axis1.RangeMax = 407.4
+designPoint16 = Parameters.CreateDesignPoint()
+designPoint16.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="500 [mm]")
+axis1.RangeMin = 20.6
+axis1.RangeMax = 509.4
+backgroundSession9 = UpdateAllDesignPoints(DesignPoints=[designPoint13, designPoint14, designPoint15, designPoint16])
+axis2.RangeMin = -0.0215352
+axis2.RangeMax = 0.45224
+designPoint13.Delete()
+axis2.RangeMin = 0.357503
+axis2.RangeMax = 0.43419
+designPoint2.Delete()
+axis1.RangeMin = 30.8
+axis1.RangeMax = 509.2
+designPoint3.Delete()
+designPoint8.Delete()
+designPoint9.Delete()
+designPoint10.Delete()
+designPoint11.Delete()
+axis2.RangeMin = 0.357896
+axis2.RangeMax = 0.425954
+designPoint7.Delete()
+designPoint6.Delete()
+axis2.RangeMin = 0.357949
+axis2.RangeMax = 0.424836
+designPoint17 = Parameters.GetDesignPoint(Name="0")
+designPoint1.CopyParameterExpressions(ToDesignPoint=designPoint17)
+backgroundSession9 = UpdateAllDesignPoints(DesignPoints=[designPoint17])
+axis2.RangeMin = -0.020864
+axis2.RangeMax = 0.438145
+axis2.RangeMin = 0.358175
+axis2.RangeMax = 0.420095
+designPoint1.Delete()
+designPoint5.Retained = True
+designPoint5.Retained = False
+Save(Overwrite=True)

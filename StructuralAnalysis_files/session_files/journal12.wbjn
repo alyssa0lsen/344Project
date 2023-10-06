@@ -1,0 +1,40 @@
+# encoding: utf-8
+# 2022 R1
+SetScriptVersion(Version="22.1.217")
+designPoint1 = Parameters.GetDesignPoint(Name="1")
+parameter1 = Parameters.GetParameter(Name="P3")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="100 [mm]")
+designPoint2 = Parameters.GetDesignPoint(Name="0")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="150 [mm]")
+designPoint3 = Parameters.CreateDesignPoint()
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="200 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint1, designPoint3])
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1])
+designPoint4 = Parameters.CreateDesignPoint()
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="100 [mm]")
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="1000 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint4])
+model1.Edit()
+parameter2 = Parameters.GetParameter(Name="P6")
+designPoint1.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="500 [mm]")
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint1])
+system2 = GetSystem(Name="Geom")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+Save(Overwrite=True)

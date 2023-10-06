@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # STRUCTURAL GEOMETRY MESH CONVERGENCE
+# structural 30mm
 structuralGeomDF = pd.read_csv('strucural geometry mesh 3.csv')
 structuralDeformation = structuralGeomDF['P2 - Total Deformation Maximum [mm]']
 structuralStress = structuralGeomDF['P4 - Equivalent Stress Maximum [MPa]']

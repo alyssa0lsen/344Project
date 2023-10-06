@@ -1,0 +1,770 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+system2 = GetSystem(Name="Geom")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+designPoint1 = Parameters.GetDesignPoint(Name="4")
+parameter1 = Parameters.GetParameter(Name="P9")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="0.0008 [m]")
+designPoint2 = Parameters.GetDesignPoint(Name="1")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="0.0005 [m]")
+designPoint3 = Parameters.GetDesignPoint(Name="2")
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="0 [m]")
+parameter2 = Parameters.GetParameter(Name="P10")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.00075 [m]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.00025 [m]")
+designPoint4 = Parameters.GetDesignPoint(Name="3")
+designPoint4.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.0001 [m]")
+designPoint1.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="5E-05 [m]")
+designPoint5 = Parameters.GetDesignPoint(Name="5")
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.0008 [m]")
+parameterVsParameterChart1 = Parameters.GetParameterVsParameterChart(Name="0")
+parameterVsParameterChart1.XAxisBottom = parameter2
+designPoint6 = Parameters.GetDesignPoint(Name="0")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint2, designPoint3, designPoint4, designPoint1, designPoint5])
+axis1 = Graphics.GetAxisContinuous(Name="Param Vs Param Y Axis")
+axis1.RangeMin = 22.6465
+axis1.RangeMax = 24.0876
+axis1.RangeMin = -1.2011
+axis1.RangeMax = 25.2232
+axis1.RangeMin = 22.6465
+axis1.RangeMax = 24.0876
+axis1.RangeMin = -1.2011
+axis1.RangeMax = 25.2232
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Al7075")
+matlProp1 = material1.CreateProperty(
+    Name="Density",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp1.BeginBatchUpdate()
+matlProp1.SetVariableProperty(
+    SheetName="Density",
+    SheetQualifiers={"Definition": "", "Behavior": ""},
+    VariableName="Density",
+    Property="Unit",
+    Value="g cm^-3")
+matlProp1.EndBatchUpdate()
+matlProp1.SetData(
+    SheetName="Density",
+    SheetQualifiers={"Definition": "", "Behavior": ""},
+    Index=-1,
+    Variables=["Density"],
+    Values=[["2.81 [g cm^-3]"]])
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint2, designPoint3, designPoint4, designPoint1, designPoint5])
+model1.Edit()
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint6])
+axis1.RangeMin = -6.00552
+axis1.RangeMax = 126.116
+Save(Overwrite=True)
+backgroundSession4 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint3, designPoint4, designPoint1, designPoint5])
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+Save(Overwrite=True)
+axis1.RangeMin = -41.2037
+axis1.RangeMax = 865.277
+designPoint3.Delete()
+designPoint4.Delete()
+axis1.RangeMin = -17.3561
+axis1.RangeMax = 864.142
+designPoint1.Delete()
+axis2 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis")
+axis2.RangeMin = 0.000494
+axis2.RangeMax = 0.000806
+designPoint7 = Parameters.CreateDesignPoint()
+designPoint7.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.001 [m]")
+axis2.RangeMin = 0.00049
+axis2.RangeMax = 0.00101
+backgroundSession5 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint5, designPoint7])
+axis1.RangeMin = -41.2037
+axis1.RangeMax = 865.277
+axis1.RangeMin = -17.3561
+axis1.RangeMax = 864.142
+axis1.RangeMin = -41.2037
+axis1.RangeMax = 865.277
+axis1.RangeMin = 563.506
+axis1.RangeMax = 836.482
+Save(Overwrite=True)
+Save(Overwrite=True)
+axis1.RangeMin = 474.266
+axis1.RangeMax = 840.731
+designPoint6.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.001 [m]")
+axis2.RangeMin = 0.000745
+axis2.RangeMax = 0.001005
+backgroundSession6 = UpdateAllDesignPoints(DesignPoints=[designPoint6])
+axis1.RangeMin = -30.2037
+axis1.RangeMax = 634.278
+axis1.RangeMin = 485.266
+axis1.RangeMax = 609.732
+parameter3 = Parameters.GetParameter(Name="P9")
+designPoint2.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.001 [m]")
+axis2.RangeMin = 0.000796
+axis2.RangeMax = 0.001004
+backgroundSession7 = UpdateAllDesignPoints(DesignPoints=[designPoint2])
+axis1.RangeMin = -28.7957
+axis1.RangeMax = 604.71
+axis1.RangeMin = 183.699
+axis1.RangeMax = 594.591
+designPoint5.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.002 [m]")
+axis2.RangeMin = 0.00098
+axis2.RangeMax = 0.00202
+designPoint5.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.5 [m]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.005 [m]")
+axis2.RangeMin = 0.00092
+axis2.RangeMax = 0.00508
+backgroundSession8 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+designPoint5.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.3 [m]")
+backgroundSession8 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.003 [m]")
+axis2.RangeMin = 0.00096
+axis2.RangeMax = 0.00304
+backgroundSession8 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+designPoint5.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+backgroundSession8 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+axis1.RangeMin = 85.5373
+axis1.RangeMax = 596.817
+designPoint7.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.004 [m]")
+axis2.RangeMin = 0.00094
+axis2.RangeMax = 0.00406
+backgroundSession9 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 74.1
+axis1.RangeMax = 597.361
+parameter4 = Parameters.GetParameter(Name="P6")
+designPoint5.SetParameterExpression(
+    Parameter=parameter4,
+    Expression="30 [mm]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter4,
+    Expression="30 [mm]")
+backgroundSession10 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint5])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 74.1
+axis1.RangeMax = 597.361
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 74.1
+axis1.RangeMax = 597.361
+designPoint8 = Parameters.CreateDesignPoint()
+designPoint8.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.3 [m]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.004 [m]")
+backgroundSession11 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+designPoint8.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+axis1.RangeMin = 74.1
+axis1.RangeMax = 597.361
+designPoint8.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.005 [m]")
+axis2.RangeMin = 0.00092
+axis2.RangeMax = 0.00508
+backgroundSession11 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis1.RangeMin = 59.982
+axis1.RangeMax = 598.034
+designPoint9 = Parameters.CreateDesignPoint()
+designPoint9.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.007 [m]")
+axis2.RangeMin = 0.00088
+axis2.RangeMax = 0.00712
+backgroundSession12 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 43.1264
+axis1.RangeMax = 598.836
+designPoint10 = Parameters.CreateDesignPoint()
+designPoint10.SetParameterExpression(
+    Parameter=parameter4,
+    Expression="30 [mm]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.18 [m]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.008 [m]")
+axis2.RangeMin = 0.00086
+axis2.RangeMax = 0.00814
+backgroundSession13 = UpdateAllDesignPoints(DesignPoints=[designPoint9])
+designPoint10.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.006 [m]")
+backgroundSession14 = UpdateAllDesignPoints(DesignPoints=[designPoint10])
+designPoint11 = Parameters.CreateDesignPoint()
+designPoint11.SetParameterExpression(
+    Parameter=parameter3,
+    Expression="0.2 [m]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.005 [m]")
+backgroundSession15 = UpdateAllDesignPoints(DesignPoints=[designPoint2])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 43.1264
+axis1.RangeMax = 598.836
+designPoint10.Retained = True
+designPoint10.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.005 [m]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="0.006 [m]")
+backgroundSession16 = UpdateAllDesignPoints(DesignPoints=[designPoint10])
+axis1.RangeMin = -28.6788
+axis1.RangeMax = 602.256
+axis1.RangeMin = 43.1264
+axis1.RangeMax = 598.836
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+model1.Exit()
+Save(Overwrite=True)
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+solutionComponent1 = system1.GetComponent(Name="Solution")
+solutionComponent1.Refresh()
+resultsComponent1 = system1.GetComponent(Name="Results")
+resultsComponent1.Refresh()
+results1.Edit()
+backgroundSession17 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint5, designPoint7, designPoint8, designPoint9, designPoint10])
+parameter5 = Parameters.GetParameter(Name="P10")
+designPoint6.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.006 [m]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.005 [m]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.004 [m]")
+parameter6 = Parameters.GetParameter(Name="P9")
+designPoint2.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.15 [m]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.18 [m]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.1 [m]")
+backgroundSession18 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint2, designPoint5, designPoint7, designPoint8, designPoint9])
+setup1.Edit()
+parameter7 = Parameters.GetParameter(Name="P11")
+designPoint11.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="461 [N]")
+parameter8 = Parameters.GetParameter(Name="P12")
+designPoint11.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="21047 [N]")
+backgroundSession19 = UpdateAllDesignPoints(DesignPoints=[designPoint11])
+designPoint12 = Parameters.CreateDesignPoint()
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.3 [m]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.007 [m]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="461 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="21047 [N]")
+backgroundSession20 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.25 [m]")
+backgroundSession20 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2 [m]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.01 [m]")
+backgroundSession20 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint12.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.03 [m]")
+backgroundSession21 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint12.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="300 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="15000 [N]")
+backgroundSession22 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint12.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.009 [m]")
+backgroundSession23 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint10.Retained = False
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+designPoint11.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint11.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="381 [N]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16580 [N]")
+backgroundSession24 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint2, designPoint5, designPoint7, designPoint8, designPoint9, designPoint10, designPoint11, designPoint12])
+designPoint11.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter7,
+    Expression="337 [N]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint11.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter8,
+    Expression="16319 [N]")
+backgroundSession25 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint2, designPoint5, designPoint7, designPoint8, designPoint9, designPoint10, designPoint11, designPoint12])
+designPoint11.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.3 [m]")
+backgroundSession26 = UpdateAllDesignPoints(DesignPoints=[designPoint11])
+designPoint11.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.25 [m]")
+backgroundSession26 = UpdateAllDesignPoints(DesignPoints=[designPoint11])
+designPoint11.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.225 [m]")
+backgroundSession26 = UpdateAllDesignPoints(DesignPoints=[designPoint11])
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2 [m]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.225 [m]")
+designPoint10.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.009 [m]")
+backgroundSession27 = UpdateAllDesignPoints(DesignPoints=[designPoint10])
+designPoint5.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.01 [m]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.225 [m]")
+backgroundSession28 = UpdateAllDesignPoints(DesignPoints=[designPoint5])
+designPoint2.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.009 [m]")
+backgroundSession29 = UpdateAllDesignPoints(DesignPoints=[designPoint2])
+designPoint6.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.227 [m]")
+designPoint9.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0085 [m]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0085 [m]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0085 [m]")
+designPoint6.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008 [m]")
+backgroundSession30 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint8, designPoint9])
+geometry1.Exit()
+designPoint13 = Parameters.CreateDesignPoint()
+designPoint13.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint13.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00875 [m]")
+backgroundSession31 = UpdateAllDesignPoints(DesignPoints=[designPoint13])
+designPoint12.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.229 [m]")
+designPoint12.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008 [m]")
+backgroundSession32 = UpdateAllDesignPoints(DesignPoints=[designPoint12])
+designPoint14 = Parameters.CreateDesignPoint()
+designPoint14.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint14.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0086 [m]")
+backgroundSession33 = UpdateAllDesignPoints(DesignPoints=[designPoint14])
+parameter9 = Parameters.GetParameter(Name="P8")
+parameterVsParameterChart1.XAxisBottom = parameter9
+parameter10 = Parameters.GetParameter(Name="P5")
+parameterVsParameterChart1.XAxisBottom = parameter10
+parameterVsParameterChart1.YAxisLeft = parameter9
+parameterVsParameterChart1.YAxisLeft = parameter10
+parameterVsParameterChart1.XAxisBottom = parameter9
+designPoint14.Retained = True
+Parameters.SetBaseDesignPoint(DesignPoint=designPoint14)
+designPoint6.Delete()
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+designPoint15 = Parameters.CreateDesignPoint()
+designPoint15.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.24 [m]")
+designPoint15.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008 [m]")
+backgroundSession34 = UpdateAllDesignPoints(DesignPoints=[designPoint15])
+backgroundSession35 = UpdateAllDesignPoints(DesignPoints=[designPoint14, designPoint15])
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+designPoint15.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.233 [m]")
+backgroundSession36 = UpdateAllDesignPoints(DesignPoints=[designPoint15])
+setup1.Edit()
+backgroundSession37 = UpdateAllDesignPoints(DesignPoints=[designPoint15])
+designPoint16 = Parameters.CreateDesignPoint()
+designPoint16.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.232 [m]")
+designPoint16.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008 [m]")
+backgroundSession38 = UpdateAllDesignPoints(DesignPoints=[designPoint16])
+setup1.Edit()
+Save(Overwrite=True)
+designPoint16.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint15.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint15.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0083 [m]")
+designPoint16.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0085 [m]")
+backgroundSession39 = UpdateAllDesignPoints(DesignPoints=[designPoint15, designPoint16])
+designPoint15.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00855 [m]")
+backgroundSession40 = UpdateAllDesignPoints(DesignPoints=[designPoint15])
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+designPoint17 = Parameters.CreateDesignPoint()
+designPoint17.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.23 [m]")
+designPoint14.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008525 [m]")
+backgroundSession41 = UpdateAllDesignPoints(DesignPoints=[designPoint14])
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+designPoint8.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00852 [m]")
+backgroundSession42 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+designPoint18 = Parameters.CreateDesignPoint()
+designPoint18.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.231 [m]")
+designPoint18.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00852 [m]")
+backgroundSession43 = UpdateAllDesignPoints(DesignPoints=[designPoint18])
+designPoint18.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2305 [m]")
+backgroundSession44 = UpdateAllDesignPoints(DesignPoints=[designPoint18])
+designPoint18.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2302 [m]")
+backgroundSession45 = UpdateAllDesignPoints(DesignPoints=[designPoint18])
+designPoint19 = Parameters.CreateDesignPoint()
+designPoint19.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2305 [m]")
+designPoint19.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00852 [m]")
+backgroundSession46 = UpdateAllDesignPoints(DesignPoints=[designPoint19])
+backgroundSession47 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint5, designPoint7, designPoint9, designPoint10, designPoint11, designPoint12, designPoint13, designPoint17, designPoint19])
+axis1.RangeMin = -0.076518
+axis1.RangeMax = 1.60688
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+axis1.RangeMin = 0.576521
+axis1.RangeMax = 1.61014
+designPoint19.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2304 [m]")
+backgroundSession48 = UpdateAllDesignPoints(DesignPoints=[designPoint19])
+designPoint19.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2303 [m]")
+backgroundSession49 = UpdateAllDesignPoints(DesignPoints=[designPoint19])
+designPoint19.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2302 [m]")
+designPoint19.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.008515 [m]")
+backgroundSession50 = UpdateAllDesignPoints(DesignPoints=[designPoint19])
+designPoint20 = Parameters.CreateDesignPoint()
+designPoint20.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2302 [m]")
+designPoint20.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00851 [m]")
+backgroundSession51 = UpdateAllDesignPoints(DesignPoints=[designPoint20])
+designPoint21 = Parameters.CreateDesignPoint()
+designPoint21.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2302 [m]")
+designPoint21.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.0085 [m]")
+backgroundSession52 = UpdateAllDesignPoints(DesignPoints=[designPoint21])
+designPoint21.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2301 [m]")
+backgroundSession53 = UpdateAllDesignPoints(DesignPoints=[designPoint21])
+designPoint7.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2301 [m]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.84 [m]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.845 [m]")
+backgroundSession54 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+axis2.RangeMin = -1.89799
+axis2.RangeMax = 96.7977
+axis1.RangeMin = -0.0781577
+axis1.RangeMax = 1.64131
+designPoint7.SetParameterExpression(
+    Parameter=parameter5,
+    Expression="0.00845 [m]")
+backgroundSession54 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+axis2.RangeMin = 66.8058
+axis2.RangeMax = 95.4505
+designPoint7.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2302 [m]")
+backgroundSession55 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+designPoint7.SetParameterExpression(
+    Parameter=parameter6,
+    Expression="0.2301 [m]")
+backgroundSession56 = UpdateAllDesignPoints(DesignPoints=[designPoint7])
+designPoint7.Delete()
+axis1.RangeMin = 1.28367
+axis1.RangeMax = 1.57646
+Save(Overwrite=True)

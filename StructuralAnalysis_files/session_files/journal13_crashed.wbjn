@@ -1,0 +1,114 @@
+# encoding: utf-8
+# 2023 R1
+SetScriptVersion(Version="23.1.153")
+system1 = GetSystem(Name="Geom")
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+system2 = GetSystem(Name="SYS")
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Edit()
+designPoint1 = Parameters.GetDesignPoint(Name="2")
+parameter1 = Parameters.GetParameter(Name="P6")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="500 [mm]")
+designPoint2 = Parameters.GetDesignPoint(Name="3")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="400 [mm]")
+designPoint3 = Parameters.GetDesignPoint(Name="1")
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="200 [mm]")
+designPoint4 = Parameters.CreateDesignPoint()
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="100 [mm]")
+designPoint5 = Parameters.CreateDesignPoint()
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="300 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint3, designPoint1, designPoint2, designPoint4, designPoint5])
+designPoint6 = Parameters.GetDesignPoint(Name="0")
+designPoint6.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="30 [mm]")
+designPoint1.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="2 [mm]")
+modelComponent1.Refresh()
+model1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+designPoint1.Delete()
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="20 [mm]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="10 [mm]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="40 [mm]")
+designPoint4.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="50 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint6, designPoint3, designPoint2, designPoint4, designPoint5])
+parameter2 = Parameters.GetParameter(Name="P7")
+designPoint4.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="50 [mm]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="40 [mm]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="10 [mm]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="20 [mm]")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint3, designPoint2, designPoint4, designPoint5])
+designPoint5.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="60 [mm]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="70 [mm]")
+designPoint5.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="60 [mm]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="70 [mm]")
+designPoint7 = Parameters.CreateDesignPoint()
+designPoint7.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="80 [mm]")
+designPoint7.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="80 [mm]")
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint2, designPoint5, designPoint7])
+parameterVsParameterChart1 = Parameters.GetParameterVsParameterChart(Name="0")
+parameterVsParameterChart1.XAxisBottom = parameter2
+designPoint8 = Parameters.CreateDesignPoint()
+designPoint8.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="25 [mm]")
+designPoint8.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="25 [mm]")
+axis1 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis")
+axis1.RangeMin = 23.9
+axis1.RangeMax = 81.1
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis2 = Graphics.GetAxisContinuous(Name="Param Vs Param Y Axis")
+axis2.RangeMin = 22.7005
+axis2.RangeMax = 22.8214
+parameterVsParameterChart1.XAxisBottom = parameter1
+Parameters.ExportAllDesignPointsData(FilePath=GetAbsoluteUserPathName("2023 Semester 2/ENGSCI 344/Project/Structural geometry mesh 2.xlsx.csv"))
+geometry1.Edit()
+setup1 = system2.GetContainer(ComponentName="Setup")
+setup1.Edit()

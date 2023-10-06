@@ -1,0 +1,104 @@
+# encoding: utf-8
+# 2022 R1
+SetScriptVersion(Version="22.1.217")
+system1 = GetSystem(Name="SYS")
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+system2 = GetSystem(Name="Geom")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+axis1 = Graphics.GetAxisContinuous(Name="Param Vs Param Y Axis")
+axis1.RangeMin = 0.338341
+axis1.RangeMax = 0.42104
+designPoint1 = Parameters.GetDesignPoint(Name="0")
+designPoint2 = Parameters.GetDesignPoint(Name="4")
+designPoint3 = Parameters.GetDesignPoint(Name="5")
+designPoint4 = Parameters.GetDesignPoint(Name="12")
+designPoint5 = Parameters.GetDesignPoint(Name="14")
+designPoint6 = Parameters.GetDesignPoint(Name="15")
+designPoint7 = Parameters.GetDesignPoint(Name="16")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1, designPoint2, designPoint3, designPoint4, designPoint5, designPoint6, designPoint7])
+axis1.RangeMin = -0.020864
+axis1.RangeMax = 0.438145
+axis1.RangeMin = 0.338052
+axis1.RangeMax = 0.421054
+axis1.RangeMin = -0.0171016
+axis1.RangeMax = 0.359133
+axis1.RangeMin = 0.334159
+axis1.RangeMax = 0.342406
+designPoint7.Delete()
+designPoint6.Delete()
+axis2 = Graphics.GetAxisContinuous(Name="Param Vs Param Continuous X Axis")
+axis2.RangeMin = 34.8
+axis2.RangeMax = 305.2
+axis1.RangeMin = 0.339722
+axis1.RangeMax = 0.342141
+designPoint8 = Parameters.CreateDesignPoint()
+parameter1 = Parameters.GetParameter(Name="P1")
+designPoint8.SetParameterExpression(
+    Parameter=parameter1,
+    Expression="30 [mm]")
+axis2.RangeMin = 24.6
+axis2.RangeMax = 305.4
+backgroundSession2 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+axis1.RangeMin = 0.339715
+axis1.RangeMax = 0.342297
+designPoint5.Delete()
+axis2.RangeMin = 27.6
+axis2.RangeMax = 152.4
+axis1.RangeMin = 0.341385
+axis1.RangeMax = 0.342217
+model1.Edit()
+axis1.RangeMin = -0.017109
+axis1.RangeMax = 0.359289
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint4])
+model1.Edit()
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Update(AllDependencies=True)
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Al7075")
+matlProp1 = material1.CreateProperty(
+    Name="Tensile Yield Strength",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp1.SetVariableProperty(
+    VariableName="Tensile Yield Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Tensile Yield Strength"],
+    Values=[["503 [MPa]"]])
+Save(Overwrite=True)
+modelComponent1.Update(AllDependencies=True)
+parameter2 = Parameters.GetParameter(Name="P3")
+designPoint8.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="50 [mm]")
+designPoint2.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="40 [mm]")
+designPoint3.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="30 [mm]")
+designPoint4.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="20 [mm]")
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint8])
+model1.Edit()
+designPoint8.Delete()
+designPoint4.Delete()
+designPoint3.Delete()
+designPoint2.Delete()
+designPoint9 = Parameters.CreateDesignPoint()
+designPoint9.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="50 [mm]")
+backgroundSession3 = UpdateAllDesignPoints(DesignPoints=[designPoint9])
+modelComponent1.Update(AllDependencies=True)
+model1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+geometry1.Exit()
+Save(Overwrite=True)
+Save(Overwrite=True)
