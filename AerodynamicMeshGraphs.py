@@ -16,5 +16,7 @@ plt.plot(numberOfNodes, dragCoefficient, marker='o', label='Cd', color='#1b96c6'
 
 plt.xlabel('Number of Nodes')
 plt.ylabel('Cd')
-plt.title('Mesh convergence - aerodynamic geometry')
+#plt.title('Mesh convergence - aerodynamic geometry')
+plt.savefig('AerodynamicMeshConvergence.png', dpi=300, bbox_inches='tight')
+
 plt.show()  # Display the graph

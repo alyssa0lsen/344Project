@@ -34,8 +34,9 @@ plt.plot(fifteenDegPos, fifteenDegPressCoeff, label='15 degrees', color='#eeb868
 
 plt.xlabel('Position (m)')
 plt.ylabel('Pressure Coefficient')
-plt.title('Pressure Coefficient at Different Angles of Attack')
+#lt.title('Pressure Coefficient at Different Angles of Attack')
 plt.legend()
+plt.savefig('Pressure Coefficient at Different Angles of Attack.png', dpi=300, bbox_inches='tight')
 
 plt.show()
 
@@ -46,29 +47,45 @@ liftCoeff = liftDragDF['P13 - lift-coefficient-op']
 dragCoeff = liftDragDF['P14 - drag-coefficient-op']
 liftDrag = liftDragDF['lift/drag']
 
-plt.plot(anglesOfAttack, liftCoeff, marker='.', label='liftCoeff', color='#1b96c6')
+plt.plot(anglesOfAttack, liftCoeff, marker='o', label='liftCoeff', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Lift Coefficient')
-plt.title('Lift Coefficient at Different Angles of Attack')
+#plt.title('Lift Coefficient at Different Angles of Attack')
 
 # Display the plot
+plt.savefig('DragAOA.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-plt.plot(anglesOfAttack, dragCoeff, marker='.', label='dragCoeff', color='#1b96c6')
+plt.plot(anglesOfAttack, dragCoeff, marker='o', label='dragCoeff', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Drag Coefficient')
-plt.title('Drag Coefficient at Different Angles of Attack')
+#plt.title('Drag Coefficient at Different Angles of Attack')
 
 # Display the plot
+plt.savefig('LiftAOA.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-plt.plot(anglesOfAttack, liftDrag, marker='.', label='lift/drag', color='#1b96c6')
+marker_colours = ['#1b96c6'] * len(anglesOfAttack)
+
+# Set a specific marker style for a data point (e.g., 's' for a star) - for the 3rd point (index 2)
+highlight_index = 6
+marker_colours[highlight_index] = '#ef767a'
+
+plt.plot(anglesOfAttack, liftDrag, linestyle='-', color='#1b96c6', label='Lift/drag')
+
+# Plot the data with customized marker styles
+for x, y, colour in zip(anglesOfAttack, liftDrag, marker_colours):
+    plt.plot(x, y, marker='o', linestyle='-', color=colour, label='Lift/drag')
+
+#plt.plot(anglesOfAttack, liftDrag, marker='.', label='lift/drag', color='#1b96c6')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('lift/drag')
-plt.title('Lift/drag at Different Angles of Attack')
+#plt.title('Lift/drag at Different Angles of Attack')
+plt.savefig('LiftDragAOA.png', dpi=300, bbox_inches='tight')
+
 
 # Display the plot
 plt.show()
@@ -80,35 +97,56 @@ referenceLiftCoeff = referenceDF['Cl']
 referenceDragCoeff = referenceDF['Cd']
 referenceLiftDrag = referenceDF['Cl/Cd']
 
-plt.plot(anglesOfAttack, liftCoeff, label='Lift Coefficient', color='#1b96c6')
-plt.plot(referenceAnglesOfAttack, referenceLiftCoeff, label='Reference Lift Coefficient', color='#ef767a')
+plt.plot(anglesOfAttack, liftCoeff, label='Lift Coefficient', marker='o', color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceLiftCoeff, label='Reference Lift Coefficient', marker='o', color='#ef767a')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Cl')
-plt.title('Lift Coefficient at Different Angles of Attack')
+#plt.title('Lift Coefficient at Different Angles of Attack')
 plt.legend()
+
+plt.savefig('Lift Coefficient at Different Angles of Attack.png', dpi=300, bbox_inches='tight')
 
 # Display the plot
 plt.show()
 
-plt.plot(anglesOfAttack, dragCoeff, label='Drag Coefficient', color='#1b96c6')
-plt.plot(referenceAnglesOfAttack, referenceDragCoeff, label='Reference Drag Coefficient', color='#ef767a')
+plt.plot(anglesOfAttack, dragCoeff, label='Drag Coefficient', marker='o', color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceDragCoeff, label='Reference Drag Coefficient', marker='o', color='#ef767a')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Cd')
-plt.title('Drag Coefficient at Different Angles of Attack')
+#plt.title('Drag Coefficient at Different Angles of Attack')
 plt.legend()
+
+plt.savefig('Drag Coefficient at Different Angles of Attack.png', dpi=300, bbox_inches='tight')
 
 # Display the plot
 plt.show()
 
-plt.plot(anglesOfAttack, liftDrag, label='Lift/drag', color='#1b96c6')
-plt.plot(referenceAnglesOfAttack, referenceLiftDrag, label='Reference Lift/drag', color='#ef767a')
+plt.plot(anglesOfAttack, liftDrag, label='Lift/drag', marker='o',  color='#1b96c6')
+plt.plot(referenceAnglesOfAttack, referenceLiftDrag, label='Reference Lift/drag', marker='o', color='#ef767a')
 
 plt.xlabel('Angle of Attack (degree)')
 plt.ylabel('Cl/Cd')
-plt.title('Lift/drag at Different Angles of Attack')
+#plt.title('Lift/drag at Different Angles of Attack')
 plt.legend()
 
+#plt.savefig('Lift/drag at Different Angles of Attack.png', dpi=300, bbox_inches='tight')
+plt.savefig('LiftDrag at Different Angles of Attack.png', dpi=300, bbox_inches='tight')
+
 # Display the plot
+plt.show()
+
+# 20 degrees AOA
+
+twentyDegDF = pd.read_csv('pressure_coefficient_20.csv')
+twentyDegPos = twentyDegDF['Position']
+twentyDegPressCoeff = twentyDegDF['Pressure Coefficient']
+
+plt.plot(twentyDegPos, twentyDegPressCoeff, label='15 degrees', color='#1b96c6')
+
+plt.xlabel('Position (m)')
+plt.ylabel('Pressure Coefficient')
+plt.savefig('Pressure Coefficient 20 degrees.png', dpi=300, bbox_inches='tight')
+
 plt.show()

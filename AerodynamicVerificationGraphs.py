@@ -17,9 +17,10 @@ plt.plot(yVelocity, outletVelocity, label='Outlet',color = '#ef767a')
 
 plt.xlabel('Y (m)')
 plt.ylabel('Velocity (m/s)')
-plt.title('Verification of Inlet Velocity')
+#plt.title('Verification of Inlet Velocity')
 plt.legend()
 
+plt.savefig('VelocityVerification.png', dpi=300, bbox_inches='tight')
 plt.show()  # Display the graph
 
 
@@ -33,8 +34,9 @@ plt.plot(yPressure, outletPressure, label='Outlet', color='#ef767a')
 
 plt.xlabel('Y (m)')
 plt.ylabel('Pressure (Pa)')
-plt.title('Verification of Pressure')
+#plt.title('Verification of Pressure')
 plt.legend()
+plt.savefig('PressureVerification.png', dpi=300, bbox_inches='tight')
 
 plt.show()  # Display the graph
 
@@ -47,7 +49,8 @@ plt.plot(xPressure, pressure, label='Inlet', color='#1b96c6')
 
 plt.xlabel('X (m)')
 plt.ylabel('Pressure (Pa)')
-plt.title('Verification of Pressure at Walls')
+#plt.title('Verification of Pressure at Walls')
+plt.savefig('PressureVerificationWalls.png', dpi=300, bbox_inches='tight')
 
 plt.show()
 
@@ -60,7 +63,9 @@ plt.plot(xVelocity, velocity, label='Inlet', color='#1b96c6')
 
 plt.xlabel('X (m)')
 plt.ylabel('Velocity (m/s)')
-plt.title('Verification of Velocity at Walls')
+#plt.title('Verification of Velocity at Walls')
+
+plt.savefig('VelocityVerificationWalls.png', dpi=300, bbox_inches='tight')
 
 plt.show()
 
